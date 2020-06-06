@@ -41,4 +41,8 @@ export const Form = styled(Unform)`
       margin: 0 auto;
     }
   }
+
+  .inputdescription {
+    margin: 6px;
+  }
 `;

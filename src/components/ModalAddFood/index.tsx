@@ -38,6 +38,8 @@ const ModalAddFood: React.FC<IModalProps> = ({
   const handleSubmit = useCallback(
     async (data: ICreateFoodData) => {
       // TODO ADD A NEW FOOD AND CLOSE THE MODAL
+      handleAddFood(data);
+      setIsOpen();
     },
     [handleAddFood, setIsOpen],
   );
@@ -46,11 +48,15 @@ const ModalAddFood: React.FC<IModalProps> = ({
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <h1>Novo Prato</h1>
+        <p className="inputdescription">Url da imagem</p>
         <Input name="image" placeholder="Cole o link aqui" />
 
+        <p className="inputdescription">Nome do Prato</p>
         <Input name="name" placeholder="Ex: Moda Italiana" />
+        <p className="inputdescription">Preço</p>
         <Input name="price" placeholder="Ex: 19.90" />
 
+        <p className="inputdescription">Descrição do prato</p>
         <Input name="description" placeholder="Descrição" />
         <button type="submit" data-testid="add-food-button">
           <p className="text">Adicionar Prato</p>
